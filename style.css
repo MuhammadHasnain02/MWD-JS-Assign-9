@@ -1,0 +1,40 @@
+.montserrat-uniquifier {
+  font-family: "Montserrat";
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+}
+
+#todosTab{
+    border: 1px solid black;
+    padding: 1px;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+tr , th , td{
+    font-family: "Montserrat";
+    border: 1px solid black;
+    padding: 10px;
+}
+
+th{
+    color: white;
+    background-color: rgb(1, 145, 111);
+    border-color: white;
+    padding-left: 20px;
+}
+#title{
+    text-align: left;
+}
+
+.completed{
+    color: gray;
+    background-color: rgb(226, 226, 226);
+    text-decoration: line-through;
+}
