@@ -4,10 +4,10 @@
   font-weight: 500;
   font-style: normal;
 }
-
 body{
+    font-family: "Montserrat";
     display: flex;
-    justify-content: center;
+    justify-content: center; 
 }
 
 #todosTab{
@@ -18,17 +18,17 @@ body{
 }
 
 tr , th , td{
-    font-family: "Montserrat";
     border: 1px solid black;
     padding: 10px;
+    font-weight: 500;
 }
-
 th{
     color: white;
     background-color: rgb(1, 145, 111);
     border-color: white;
     padding-left: 20px;
 }
+
 #title{
     text-align: left;
 }
