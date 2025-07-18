@@ -7,41 +7,78 @@
 
 // =======================================================
 
-fetch("https://jsonplaceholder.typicode.com/todos")
+const getData = async () => {
 
-.then((responce) => {
+    try {
+        const get = await fetch("https://jsonplaceholder.typicode.com/todos")
+        const data = await get.json()
+        console.log("Data => " , data);
 
-    if (!responce.ok) {
-        throw new Error("Error")
+        let todosTable = document.getElementById("todosTab")
+
+        data.slice(0 , 10).forEach(todo => {
+
+            let tr = document.createElement("tr")
+
+            if (todo.completed === true) {
+                tr.classList.add("completed")
+            }
+
+            tr.innerHTML =
+            `
+            <td>${todo.userId}</td>
+            <td>${todo.id}</td>
+            <td id ="title">${todo.title}</td>
+            <td>${todo.completed ? '✔️' : '❌'}</td>
+            `
+
+            todosTable.appendChild(tr)
+        })
     }
-    return responce.json()
+    catch (error) {
+        console.log("Could not find the data: " , error);
+    }
 
-})
+}
+getData()
 
-.then((data) => {
+// =======================================================
 
-    console.log(data);
+// fetch("https://jsonplaceholder.typicode.com/todos")
 
-    let todosTable = document.getElementById("todosTab")
+// .then((responce) => {
 
-    data.slice(0 , 10).forEach(todo => {
+//     if (!responce.ok) {
+//         throw new Error("Error")
+//     }
+//     return responce.json()
 
-        let tr = document.createElement("tr")
+// })
 
-        if (todo.completed === true) {
-            tr.classList.add("completed")
-        }
+// .then((data) => {
+
+//     console.log(data);
+
+//     let todosTable = document.getElementById("todosTab")
+
+//     data.slice(0 , 10).forEach(todo => {
+
+//         let tr = document.createElement("tr")
+
+//         if (todo.completed === true) {
+//             tr.classList.add("completed")
+//         }
         
-        tr.innerHTML =
-        `
-        <td>${todo.userId}</td>
-        <td>${todo.id}</td>
-        <td id ="title">${todo.title}</td>
-        <td>${todo.completed ? '✔️' : '❌'}</td>
-        `
+//         tr.innerHTML =
+//         `
+//         <td>${todo.userId}</td>
+//         <td>${todo.id}</td>
+//         <td id ="title">${todo.title}</td>
+//         <td>${todo.completed ? '✔️' : '❌'}</td>
+//         `
         
-        todosTable.appendChild(tr)
+//         todosTable.appendChild(tr)
 
-    });
+//     });
 
-})
+// })
